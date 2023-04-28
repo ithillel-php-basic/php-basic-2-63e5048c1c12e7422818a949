@@ -1,5 +1,5 @@
 <?php
-$task = 'backlog';
+$task = 'done';
 ?>
 
 <!DOCTYPE html>
@@ -166,10 +166,10 @@ $task = 'backlog';
                   <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
                 </div>
               </div>
+              <?php
+              endif;
+              ?>
             </div>
-            <?php
-            endif;
-            ?>
           </div>
           <div class="card card-row card-primary">
             <div class="card-header">
