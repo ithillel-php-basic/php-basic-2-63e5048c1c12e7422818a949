@@ -166,6 +166,14 @@ function countHome ($array,$category){
             <?php endforeach;?>
 
 
+            <li class="nav-item">
+              <a href="index.php" class="nav-link bg-olive">
+                <i class="nav-icon fas fa-plus"></i>
+                <p>
+                  Додати проект
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
