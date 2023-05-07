@@ -12,40 +12,63 @@ $tasks = [
     [
         'title'=>'замовити піцу',
         'date_realisation'=>'04.06.2023',
-        'category'=>'домашні справи',
+        'category'=>'Домашні справи',
+        'status'=>'to-do',
+    ],
+    [
+        'title'=>'вивчити цейво',
+        'date_realisation'=>'04.06.2023',
+        'category'=>'Навчання',
         'status'=>'to-do',
     ],
     [
         'title'=>'погуляти',
         'date_realisation'=>'02.06.2023',
-        'category'=>'домашні справи',
+        'category'=>'Домашні справи',
         'status'=>'to-do',
     ],
     [
         'title'=>'погуляти',
         'date_realisation'=>'02.06.2023',
-        'category'=>'домашні справи',
+        'category'=>'Домашні справи',
         'status'=>'to-do',
     ],
     [
         'title'=>'написати сайт',
         'date_realisation'=>'01.02.2021',
-        'category'=>'робота',
+        'category'=>'Робота',
         'status'=>'done',
     ],
     [
         'title'=>'пройти співбесіду',
         'date_realisation'=>'01.02.2015',
-        'category'=>'робота',
+        'category'=>'Робота',
         'status'=>'backlog',
     ],
     [
         'title'=>'пройти співбесіду',
         'date_realisation'=>'01.02.2015',
-        'category'=>'робота',
+        'category'=>'Робота',
+        'status'=>'backlog',
+    ],
+    [
+        'title'=>'знайти вхід',
+        'date_realisation'=>'01.02.2011',
+        'category'=>'Вхідні',
         'status'=>'backlog',
     ],
 ];
+
+function countHome ($array,$category){
+  $i = 0;
+  foreach ($array as $ar){
+    if($ar['category'] === $category){
+      $i = $i + 1;
+    }
+  }
+  return $i;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +159,7 @@ $tasks = [
 
                     </br>
 
-                    <span class="badge badge-info right">2</span>
+                    <span class="badge badge-info right"><?php echo countHome($tasks,$name); ?></span>
                   </p>
                 </a>
               </li>
