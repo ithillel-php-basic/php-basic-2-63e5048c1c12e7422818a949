@@ -59,15 +59,18 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false and showTime($task['date_realisation']) > 0): ?>
+                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false):?>
+
                                         <small class="badge badge-danger"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
                                             залишилось </small>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false and showTime($task['date_realisation']) > 0): ?>
+                                        <?='(до '.$task['date_realisation'].')';?>
+                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
+
                                         <small class="badge badge-success"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
                                             залишилось </small>
-
+                                        <?='(до '.$task['date_realisation'].')';?>
                                     <?php endif ?>
 
                                 </div>
@@ -113,15 +116,16 @@
                                         <i class="fas fa-file"></i>
                                     </a>
 
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false and showTime($task['date_realisation']) > 0): ?>
+                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false): ?>
                                         <small class="badge badge-danger"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
                                             залишилось </small>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false and showTime($task['date_realisation']) > 0): ?>
+                                        <?='(до '.$task['date_realisation'].')';?>
+                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
                                         <small class="badge badge-success"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
                                             залишилось </small>
-
+                                        <?='(до '.$task['date_realisation'].')';?>
                                     <?php endif ?>
 
                                 </div>
@@ -165,15 +169,16 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false and showTime($task['date_realisation']) > 0): ?>
+                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false): ?>
                                         <small class="badge badge-danger"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
                                             залишилось </small>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false and showTime($task['date_realisation']) > 0): ?>
+                                        <?='(до '.$task['date_realisation'].')';?>
+                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
                                         <small class="badge badge-success"><i
                                                 class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
                                             залишилось </small>
-
+                                        <?='(до '.$task['date_realisation'].')';?>
                                     <?php endif ?>
 
                                 </div>
