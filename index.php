@@ -34,13 +34,13 @@ $tasks = [
     ],
     [
         'title' => 'погладити кота',
-        'date_realisation' => '15.05.2023',
+        'date_realisation' => '16.05.2023',
         'category' => 'Домашні справи',
         'status' => 'to-do',
     ],
     [
         'title' => 'погуляти',
-        'date_realisation' => '02.06.2023',
+        'date_realisation' => '16.05.2023',
         'category' => 'Домашні справи',
         'status' => 'to-do',
     ],
