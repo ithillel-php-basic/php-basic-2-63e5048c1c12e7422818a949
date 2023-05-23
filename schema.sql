@@ -10,10 +10,10 @@ CREATE TABLE users (
                        password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE projects (
+CREATE TABLE categories (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           name VARCHAR(255) NOT NULL,
-                          author_id INT NOT NULL,
+                          author_id INT,
                           FOREIGN KEY (author_id) REFERENCES users(id)
 );
 
@@ -26,9 +26,9 @@ CREATE TABLE tasks (
                        file VARCHAR(255),
                        deadline DATE,
                        author_id INT NOT NULL,
-                       project_id INT,
+                       category_id INT,
                        FOREIGN KEY (author_id) REFERENCES users(id),
-                       FOREIGN KEY (project_id) REFERENCES projects(id)
+                       FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 CREATE UNIQUE INDEX idx_email ON users (email);
