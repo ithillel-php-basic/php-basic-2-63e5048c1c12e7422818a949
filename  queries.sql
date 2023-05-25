@@ -27,15 +27,13 @@ VALUES
 SELECT c.name
 FROM categories c
          JOIN tasks t ON t.category_id = c.id
-         JOIN users u ON u.id = t.author_id
-WHERE u.id = 1
+WHERE c.id = 1
 GROUP BY c.name;
 
 -- Отримати список завдань для одного проекту
-SELECT t.title, t.description, t.deadline
-FROM tasks t
-         JOIN categories p ON p.id = t.category_id
-WHERE p.id = 1;
+SELECT title, description, deadline
+FROM tasks
+WHERE id = 1;
 
 -- Змінити статус завдання на "в роботі"
 UPDATE tasks
