@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE categories (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           name VARCHAR(255) NOT NULL,
-                          author_id INT,
+                          author_id INT NOT NULL,
                           FOREIGN KEY (author_id) REFERENCES users(id)
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE tasks (
                        file VARCHAR(255),
                        deadline DATE,
                        author_id INT NOT NULL,
-                       category_id INT,
+                       category_id INT NOT NULL,
                        FOREIGN KEY (author_id) REFERENCES users(id),
                        FOREIGN KEY (category_id) REFERENCES categories(id)
 );
