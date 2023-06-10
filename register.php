@@ -30,20 +30,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<b>введіть валідний емайл.</b>' . PHP_EOL . '<b>спробуйте ще раз</b>';
     unset($email);
 } else {
-
         $conn = getConnection($host, $db_username, $db_password, $database);
-        // Виконання запиту для збереження даних
-        $sql = strip_tags("INSERT INTO users (registration_date,email, name,password) VALUES ('$registration_date','$email','$name', '$hashed_password')");
+        // Перевірка наявності емейла в базі даних
+        $checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+        $stmt = $conn->prepare($checkEmailQuery);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Ви успішно зареєструвалися!";
+        if ($result->num_rows > 0) {
+            echo "Користувач з таким емейлом вже існує!";
         } else {
-            echo "Помилка: " . $conn->error;
+
+            // Виконання запиту для збереження даних
+            $insertQuery = "INSERT INTO users (registration_date, email, name, password) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($insertQuery);
+            $stmt->bind_param("ssss", $registration_date, $email, $name, $hashed_password);
+
+            if ($stmt->execute()) {
+                echo "Ви успішно зареєструвалися!";
+            } else {
+                echo "Помилка: " . $stmt->error;
+            }
         }
     }
 }
 
-    $content = @renderTemplate('register.php', [
+
+$content = @renderTemplate('register.php', [
         'username' => $name,
         'email' => $email,
     ]);

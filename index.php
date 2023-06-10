@@ -14,6 +14,26 @@ $conn = getConnection ($servername, $username, $password, $dbname);
 $categories = getCategories($conn,1);
 $tasks = getTasks($conn,1);
 
+
+$kanban = renderTemplate('kanban.php', [
+    'tasks' => $tasks,
+]);
+
+$main = renderTemplate('main.php', [
+    'kanban' => $kanban,
+    'tasks' => $tasks,
+    'username' => 'Volodymyr',
+    'photopath' => "static/img/user2-160x160.jpg",
+    'categories' => $categories,
+]);
+
+echo renderTemplate('layout.php', [
+    'content' => $main,
+    'pagename' => $pagename,
+
+
+]);
+
 function countHome($array, $category)
 {
     $i = 0;
@@ -39,24 +59,7 @@ function showTime($dateRealisation)
 }
 
 
-$kanban = renderTemplate('kanban.php', [
-    'tasks' => $tasks,
-]);
 
-$main = renderTemplate('main.php', [
-    'kanban' => $kanban,
-    'tasks' => $tasks,
-    'username' => 'Volodymyr',
-    'photopath' => "static/img/user2-160x160.jpg",
-    'categories' => $categories,
-]);
-
-echo renderTemplate('layout.php', [
-    'content' => $main,
-    'pagename' => $pagename,
-
-
-]);
 
 
 
