@@ -11,7 +11,7 @@
                 <a href="index.php" class="nav-link">Дошка</a>
             </li>
             <li class="nav-item bg-primary d-none d-sm-inline-block">
-                <a href="index.php" class="nav-link">Створити задачу</a>
+                <a href="add.php" class="nav-link">Створити задачу</a>
             </li>
         </ul>
 

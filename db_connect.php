@@ -16,7 +16,7 @@ function getConnection ($servername, $username, $password, $dbname){
 
 // SQL-запит для отримання списку проєктів поточного користувача
 function getCategories ($conn, $author_id){
-    $userProjectsQuery = strip_tags("SELECT * FROM categories WHERE author_id = 1");
+    $userProjectsQuery = strip_tags("SELECT * FROM categories WHERE author_id = $author_id");
     $categories = $conn->query($userProjectsQuery);
 
 

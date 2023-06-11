@@ -5,6 +5,7 @@ $pagename = 'Завдання';
 // Перевірка, чи були надіслані дані форми
 $name = '';
 $email = '';
+$agreeTerms = '2';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Отримання даних з форми
@@ -14,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $registration_date = date("Y-m-d"); // Отримуємо сьогоднішню дату
     $email = $_POST["email"];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    if (isset($_POST["agreeTerms"])) {
+        $agreeTerms = $_POST["agreeTerms"];
+    }
     // Підключення до бази даних
     $host = "localhost";
     $db_username = "root";
@@ -21,14 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $database = "todolist";
     if (isset($password) and isset($password2) and $password != $password2 ) {
         echo '<b>паролі не збігаються.</b>' . PHP_EOL . '<b>спробуйте ще раз</b>';
-        unset($password);
-        unset($password2);
     }elseif (isset($password) and mb_strlen($password) < 4) {
         echo '<b>пароль занадто короткий, треба мінімум 4 символи.</b>' . PHP_EOL . '<b>спробуйте ще раз</b>';
-        unset($email);
     } elseif (isset($email) and filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-    echo '<b>введіть валідний емайл.</b>' . PHP_EOL . '<b>спробуйте ще раз</b>';
-    unset($email);
+        echo '<b>введіть валідний емайл.</b>' . PHP_EOL . '<b>спробуйте ще раз</b>';
+    } elseif ($agreeTerms === '2') {
+      echo  '<b>Щоби зареєструватися, слід погодитись із умовами (поставити галочку нижче)</b>';
 } else {
         $conn = getConnection($host, $db_username, $db_password, $database);
         // Перевірка наявності емейла в базі даних
@@ -57,9 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-$content = @renderTemplate('register.php', [
+$content = renderTemplate('register.php', [
         'username' => $name,
         'email' => $email,
+        'agreeTerms' => $agreeTerms,
     ]);
 
 

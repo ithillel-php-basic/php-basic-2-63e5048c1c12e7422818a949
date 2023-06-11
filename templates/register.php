@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" value="<?=$agreeTerms?>">
                             <label for="agreeTerms">
                                 Я згоден(а) з <a href="#">умовами</a>
                             </label>

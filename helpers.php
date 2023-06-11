@@ -134,12 +134,11 @@ function renderTemplate($name, array $data = []) {
     if (!is_readable($name)) {
         return $result;
     }
-
     ob_start();
+
     extract($data);
     require $name;
 
-    $result = ob_get_clean();
-
+        $result = ob_get_clean();
     return $result;
 }

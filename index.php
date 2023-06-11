@@ -11,7 +11,7 @@ $dbname = "todolist";
 
 $pagename = 'Завдання';
 $conn = getConnection ($servername, $username, $password, $dbname);
-$categories = getCategories($conn,1);
+$categories = getCategories($conn,15);
 $tasks = getTasks($conn,1);
 
 
@@ -27,12 +27,14 @@ $main = renderTemplate('main.php', [
     'categories' => $categories,
 ]);
 
+
+
 echo renderTemplate('layout.php', [
     'content' => $main,
     'pagename' => $pagename,
-
-
 ]);
+
+
 
 function countHome($array, $category)
 {
