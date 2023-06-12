@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 // Створення з'єднання з базою даних
 function getConnection ($servername, $username, $password, $dbname){
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -16,7 +13,7 @@ function getConnection ($servername, $username, $password, $dbname){
 
 // SQL-запит для отримання списку проєктів поточного користувача
 function getCategories ($conn, $author_id){
-    $userProjectsQuery = strip_tags("SELECT * FROM categories WHERE author_id = $author_id");
+    $userProjectsQuery = "SELECT * FROM categories WHERE author_id = $author_id";
     $categories = $conn->query($userProjectsQuery);
 
 
@@ -36,7 +33,7 @@ function getCategories ($conn, $author_id){
 
 function getTasks ($conn, $author_id){
 // SQL-запит для отримання списку завдань поточного користувача
-    $userTasksQuery = strip_tags("SELECT * FROM tasks WHERE author_id = 1");
+    $userTasksQuery = "SELECT * FROM tasks WHERE author_id = $author_id";
     $tasks = $conn->query($userTasksQuery);
 
 // Перевірка результату запиту

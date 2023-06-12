@@ -3,9 +3,9 @@
 <div class="content-wrapper kanban">
     <section class="content-header">
         <div class="container-fluid">
-           <a href="register.php" style="font-size: 20px;" style="background-color: yellow; color: red;">Реєстрація</a>
-            <br>
-            <a href="login.php" style="font-size: 20px;" style="background-color: yellow; color: red;">Вхід</a>
+
+
+
             <div class="row">
                 <div class="col-sm-6">
                     <h1>Назва проекту</h1>

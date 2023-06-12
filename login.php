@@ -1,6 +1,8 @@
 <?php
 require_once "helpers.php";
 require_once "db_connect.php";
+
+echo 'welcome to login page';
 $pagename = 'Завдання';
 
 // Перевірка, чи були надіслані дані форми
@@ -18,8 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = getConnection($host, $db_username, $db_password, $database);
 
     // Перевірка наявності користувача з введеним емейлом в базі даних
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($query);
+    // Перевірка наявності користувача з введеним емейлом в базі даних
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
         // Знайдено користувача з введеним емейлом

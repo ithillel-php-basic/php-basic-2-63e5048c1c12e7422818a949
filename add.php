@@ -2,7 +2,12 @@
 
 require_once 'helpers.php';
 require_once 'db_connect.php';
-require_once 'env.php';
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "todolist";
 
 $conn = getConnection ($servername, $username, $password, $dbname);
 $categories = getCategories($conn,15);

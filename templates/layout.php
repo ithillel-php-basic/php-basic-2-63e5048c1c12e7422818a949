@@ -21,8 +21,16 @@
     <link rel="stylesheet" href="static/css/kanban.css">
 
 </head>
-
-<?=$content; ?>
-
+<?php if (empty($user)): ?>
+    <!-- Відображення кнопки "Увійти" та "Зареєструватися" -->
+    <a href="templates/login.php">Увійти</a> |
+    <a href="register.php">Зареєструватися</a>
+<?php else: ?>
+    <!-- Відображення імені користувача, кнопки "Додати завдання" та "Вийти" -->
+    Вітаємо, <?php echo htmlspecialchars($user['name']); ?>! |
+    <a href="#">Додати завдання</a> |
+    <a href="logout.php">Вийти</a>
+    <?=$content; ?>
+<?php endif; ?>
 
 </html>

@@ -13,6 +13,11 @@
  *
  * @return bool true у разі збігу з форматом 'ГГГГ-ММ-ДД', інакше false
  */
+
+
+
+
+
 function isDateValid(string $date) : bool {
     $format_to_check = 'Y-m-d';
     $dateTimeObj = date_create_from_format($format_to_check, $date);
