@@ -3,6 +3,7 @@ require_once "helpers.php";
 require_once "db_connect.php";
 
 echo 'welcome to login page';
+$email = '';
 $pagename = 'Завдання';
 
 // Перевірка, чи були надіслані дані форми
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$content = @renderTemplate('login.php', [
+$content = renderTemplate('login.php', [
     'email' => $email,
 ]);
 
