@@ -11,7 +11,7 @@
                 <a href="index.php" class="nav-link">Дошка</a>
             </li>
             <li class="nav-item bg-primary d-none d-sm-inline-block">
-                <a href="index.php" class="nav-link">Створити задачу</a>
+                <a href="add.php" class="nav-link">Створити задачу</a>
             </li>
         </ul>
 
@@ -52,14 +52,14 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
-                    <?php foreach ($categories as $key=>$name): ?>
+                    <?php foreach ($categories as $key=>$category): ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
-                                    <?= $name ?>
+                                    <?= $category['name']; ?>
                                     </br>
-                                    <span class="badge badge-info right"><?php echo countHome($tasks,$name); ?></span>
+                                    <span class="badge badge-info right"><?php echo countHome($tasks,$category['id']); ?></span>
                                 </p>
                             </a>
                         </li>

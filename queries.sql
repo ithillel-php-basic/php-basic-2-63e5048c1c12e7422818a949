@@ -1,9 +1,9 @@
 USE todolist;
 
--- Додавання користувачів
-INSERT INTO users (id, registration_date, email, name, password)
-VALUES (1,'2023-05-23', 'user5@example.com', 'Користувач 1', 'password1'),
-       (2,'2023-05-23', 'user6@example.com', 'Користувач 2', 'password2');
+
+ -- Додавання користувачів
+ INSERT INTO users (id, registration_date, email, name, password)
+ VALUES (1,'2023-05-23', 'user5@example.com', 'Користувач 1', 'password1'),
        
        
 -- Додавання категорій
@@ -32,6 +32,7 @@ WHERE author_id = 1;
 SELECT title, description, deadline
 FROM tasks
 WHERE category_id = 3;
+
 
 -- Змінити статус завдання на "в роботі"
 UPDATE tasks

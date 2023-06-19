@@ -1,92 +1,46 @@
 <?php
 
-include "helpers.php";
+require_once "helpers.php";
+require_once 'db_connect.php';
 
+// Параметри підключення до бази даних
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "todolist";
 
 $pagename = 'Завдання';
+$conn = getConnection ($servername, $username, $password, $dbname);
+$categories = getCategories($conn,15);
+$tasks = getTasks($conn,1);
 
-$categories = [
-    "Вхідні",
-    "Навчання",
-    "Робота",
-    "Домашні справи",
-    "Авто",
-];
 
-$tasks = [
-    [
-        'title' => 'замовити піцу',
-        'date_realisation' => '13.05.2023',
-        'category' => 'Домашні справи',
-        'status' => 'to-do',
-    ],
-    [
-        'title' => 'вивчити цейво',
-        'date_realisation' => '14.05.2023',
-        'category' => 'Навчання',
-        'status' => 'to-do',
-    ],
-    [
-        'title' => 'нагодувати кота',
-        'date_realisation' => '15.05.2023',
-        'category' => 'Домашні справи',
-        'status' => 'to-do',
-    ],
-    [
-        'title' => 'погладити кота',
-        'date_realisation' => '16.05.2023',
-        'category' => 'Домашні справи',
-        'status' => 'to-do',
-    ],
-    [
-        'title' => 'погуляти',
-        'date_realisation' => '16.05.2023',
-        'category' => 'Домашні справи',
-        'status' => 'to-do',
-    ],
-    [
-        'title' => 'написати сайт',
-        'date_realisation' => '01.06.2023',
-        'category' => 'Робота',
-        'status' => 'in-progress',
-    ],
-    [
-        'title' => 'пограти в козаки 3',
-        'date_realisation' => '01.07.2022',
-        'category' => 'Робота',
-        'status' => 'done',
-    ],
-    [
-        'title' => 'пройти співбесіду',
-        'date_realisation' => '01.08.2023',
-        'category' => 'Робота',
-        'status' => 'backlog',
-    ],
-    [
-        'title' => 'знайти вхід',
-        'date_realisation' => null,
-        'category' => 'Вхідні',
-        'status' => 'backlog',
-    ],
-    [
-        'title' => 'винести сміття',
-        'date_realisation' => '01.01.2023',
-        'category' => 'Вхідні',
-        'status' => 'done',
-    ],
-    [
-        'title' => 'помити посуд',
-        'date_realisation' => '01.09.2023',
-        'category' => 'Вхідні',
-        'status' => 'in-progress',
-    ],
-];
+$kanban = renderTemplate('kanban.php', [
+    'tasks' => $tasks,
+]);
+
+$main = renderTemplate('main.php', [
+    'kanban' => $kanban,
+    'tasks' => $tasks,
+    'username' => 'Volodymyr',
+    'photopath' => "static/img/user2-160x160.jpg",
+    'categories' => $categories,
+]);
+
+
+
+echo renderTemplate('layout.php', [
+    'content' => $main,
+    'pagename' => $pagename,
+]);
+
+
 
 function countHome($array, $category)
 {
     $i = 0;
     foreach ($array as $ar) {
-        if ($ar['category'] === $category) {
+        if ($ar['category_id'] === $category) {
             $i = $i + 1;
         }
     }
@@ -107,22 +61,8 @@ function showTime($dateRealisation)
 }
 
 
-$kanban = renderTemplate('kanban.php', [
-    'tasks' => $tasks,
-]);
 
-$main = renderTemplate('main.php', [
-    'kanban' => $kanban,
-    'tasks' => $tasks,
-    'username' => 'Volodymyr',
-    'photopath' => "static/img/user2-160x160.jpg",
-    'categories' => $categories,
-]);
 
-echo renderTemplate('layout.php', [
-    'content' => $main,
-    'pagename' => $pagename,
-]);
 
 
 

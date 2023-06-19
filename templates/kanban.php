@@ -1,7 +1,11 @@
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper kanban">
     <section class="content-header">
         <div class="container-fluid">
+           <a href="register.php" style="font-size: 20px;" style="background-color: yellow; color: red;">Реєстрація</a>
+            <br>
+            <a href="login.php" style="font-size: 20px;" style="background-color: yellow; color: red;">Вхід</a>
             <div class="row">
                 <div class="col-sm-6">
                     <h1>Назва проекту</h1>
@@ -59,18 +63,18 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false):?>
+                                    <?php if (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'годин')!==false):?>
 
                                         <small class="badge badge-danger"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline']) ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
+                                        <?='(до '.$task['deadline'].')';?>
+                                    <?php elseif (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'днів')!==false): ?>
 
                                         <small class="badge badge-success"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline'])  ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
+                                        <?='(до '.$task['deadline'].')';?>
                                     <?php endif ?>
 
                                 </div>
@@ -116,16 +120,16 @@
                                         <i class="fas fa-file"></i>
                                     </a>
 
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false): ?>
+                                    <?php if (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'годин')!==false): ?>
                                         <small class="badge badge-danger"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline']) ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
+                                        <?='(до '.$task['deadline'].')';?>
+                                    <?php elseif (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'днів')!==false): ?>
                                         <small class="badge badge-success"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline'])  ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
+                                        <?='(до '.$task['deadline'].')';?>
                                     <?php endif ?>
 
                                 </div>
@@ -169,16 +173,16 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php if (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'годин')!==false): ?>
+                                    <?php if (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'годин')!==false): ?>
                                         <small class="badge badge-danger"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation']) ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline']) ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
-                                    <?php elseif (!is_null($task['date_realisation']) and strpos(showTime($task['date_realisation']),'днів')!==false): ?>
+                                        <?='(до '.$task['deadline'].')';?>
+                                    <?php elseif (!is_null($task['deadline']) and strpos(showTime($task['deadline']),'днів')!==false): ?>
                                         <small class="badge badge-success"><i
-                                                class="far fa-clock"></i> <?php echo showTime($task['date_realisation'])  ?>
+                                                class="far fa-clock"></i> <?php echo showTime($task['deadline'])  ?>
                                             залишилось </small>
-                                        <?='(до '.$task['date_realisation'].')';?>
+                                        <?='(до '.$task['deadline'].')';?>
                                     <?php endif ?>
 
                                 </div>
